@@ -5,12 +5,15 @@ $(document).ready(function(){
 
 	// squash the bugs isn't showing up
 	function addSubHeader() {
-		var subHeader = $('<small>&nbsp&nbspsquash the bugs!</small>')
-		$('h1').append(subHeader);
+		// practicing vanilla DOM manipulation.
+		var subHeader = document.createElement('small')
+		subHeader.textContent = '  squash the bugs!'
+		document.getElementsByTagName('h1')[0].appendChild(subHeader);
+		// var subHeader = $('<small>&nbsp&nbspsquash the bugs!</small>')
+		// $('h1').append(subHeader);
 	}
 
 	addSubHeader();
-
 
 	$('form').on('submit', function(event){
 		event.preventDefault();
@@ -19,9 +22,9 @@ $(document).ready(function(){
 
 		// should count occurrences of the letter "E"
 		// and update the display. instead always shows 0
-		for (var i = 0; i < 10; i++){
+		var count = 0;
+		for (var i = 0; i < input.length; i++){
 			// this loop doesn't find both es in  "supercalifragilisticexpialidocious"
-			var count = 0;
 			if (input[i] === "e"){
 				count = count +1;
 			}
@@ -29,4 +32,4 @@ $(document).ready(function(){
 		}
 	});
 
-};
+});
